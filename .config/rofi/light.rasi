@@ -1,0 +1,171 @@
+configuration {
+	show-icons: true;
+}
+
+* {
+    background-color:  transparent;
+    
+    background-primary-color: #F7F8F6;
+
+    foreground:  #ffeedd;
+    backlight:   #1F2022;
+    line-color: transparent;
+    background-search-color: #F7F8F6;
+    line-search-color: #1F2022;
+
+
+    background-selected-color: #1F2022;
+    background-selected-urgent-color: #1F2022;
+    background-selected-active-color: #1F2022;
+
+    item-primary-color: #F7F8F6;
+    item-primary-alternate-color: #F7F8F6;
+
+    item-urgent-color: #F7F8F6;
+    item-urgent-alternate-color: #F7F8F6;
+
+    item-active-color: #F7F8F6;
+    item-active-alternate-color: #F7F8F6;
+
+    text-primary-color: #1F2022;
+    text-primary-alternate-color: #1F2022;
+
+    text-urgent-color: #1F2022;
+    text-urgent-alternate-color: #1F2022;
+    
+    text-active-color: #1F2022;
+    text-active-alternate-color: #1F2022;
+
+    text-selected-color: #F7F8F6;
+    text-selected-urgent-color: #F7F8F6;
+    text-selected-active-color: #F7F8F6;
+    
+    scrollbar-color: #F7F8F6;
+
+    transparent: rgba(0,0,0,0);
+    font: "Source Code Pro 12";
+}
+
+window {
+    location: center;
+    transparency: "real";
+    border:  0px;
+    border-radius: 15px;
+    background-color: @transparent;
+    spacing: 0;
+    width: 35em;
+    children:  [mainbox];
+    orientation: horizontal;
+}
+
+mainbox {
+    spacing: 0;
+    background-color: @background-primary-color;
+    padding: 15px;
+    border-radius:  15px 15px 15px 15px;
+    
+    border: 2px;
+    border-color: @line-color;
+
+    children: [ inputbar, listview ];
+}
+
+inputbar {
+    border: 2px 2px 2px 2px;
+    border-color: @line-search-color;
+    color: @text-primary-color;
+    padding: 11px;
+    background-color: @background-search-color;
+    
+    border-radius:  15px 15px 15px 15px;
+    font: "Source Code Pro 12";
+    children: [ entry,search ];
+}
+
+search {
+    content: "uwu";
+    color: @text-primary-color;
+    horizontal-align: 0.5;
+}
+entry {
+    width: 100%;
+}
+
+listview {
+    padding: 0px;
+    margin: 12px 0px 0px 0px;
+    background-color: @background-primary-color;
+    dynamic: false;
+    lines: 6;
+    border-radius:  0px 0px 15px 15px;
+}
+
+element {
+    padding: 0.6em;
+    border-radius: 15px;
+    background-color: transparent;
+    font:inherit;
+}
+
+element-text {
+    background-color: inherit;
+    text-color:       inherit;
+}
+
+entry,prompt,case-indicator {
+    text-font: inherit;
+    text-color: @text-primary-color;
+}
+
+prompt {
+    margin:     0px 0.3em 0em 0em ;
+}
+
+element.normal.normal {
+    background-color: @item-primary-color;
+    text-color:       @text-primary-color;
+}
+
+element.normal.urgent {
+    background-color: @item-urgent-color;
+    text-color:       @text-urgent-color;
+}
+element.normal.active {
+    background-color: @item-active-color;
+    text-color:       @text-active-color;
+}
+
+element.alternate.normal {
+    background-color: @item-primary-alternate-color;
+    text-color:       @text-primary-alternate-color;
+}
+element.alternate.urgent {
+    background-color: @item-urgent-alternate-color;
+    text-color:       @text-urgent-alternate-color;
+}
+element.alternate.active {
+    background-color: @item-active-alternate-color;
+    text-color:       @text-active-alternate-color;
+}
+
+
+element.selected.normal {
+    background-color: @background-selected-color;
+    text-color:       @text-selected-color;
+}
+element.selected.urgent {
+    background-color: @background-selected-urgent-color;
+    text-color:       @text-selected-color;
+}
+element.selected.active {
+    background-color: @background-selected-active-color;
+    text-color:       @text-selected-color;
+}
+
+scrollbar {
+    width:        0px ;
+    border:       0;
+    handle-width: 0px ;
+    padding:      0;
+    background-color: @scrollbar-color;
+}
