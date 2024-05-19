@@ -62,9 +62,9 @@ echo "[🔨] Building Picom"
 ninja -C "$build_dir" -j $(nproc) > /dev/null 2>&1
 
 # Instalar picom
-echo -e "   [-] Instalando Picom"
+echo -e "$AZUL\t[-] Instalando Picom"
 sudo ninja -C "$build_dir" install > /dev/null 2>&1
-echo -e "   [✓] Picom se instaló correctamente"
+echo -e "$VERDE\t[✓] Picom se instaló correctamente"
 
 
 function ctrl_c() {
