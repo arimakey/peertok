@@ -1,5 +1,15 @@
 #!/bin/bash
 
+NEGRO="\e[30m"
+ROJO="\e[31m"
+VERDE="\e[32m"
+AMARILLO="\e[33m"
+AZUL="\e[34m"
+MAGENTA="\e[35m"
+CELESTE="\e[36m"
+BLANCO="\e[37m"
+NOCOLOR="\e[0m"
+
 # Función para verificar si un paquete está instalado
 package_installed() {
     dpkg -l | grep -q "^ii  $1 "
@@ -12,15 +22,15 @@ IFS=' ' read -ra packages <<< "$1"
 for package_name in "${packages[@]}"; do
     # Verificamos si el paquete ya está instalado
     if package_installed "$package_name"; then
-        echo "[✓] $package_name ya está instalado"
+        printf "$VERDE [✓] $package_name ya está instalado"
     else
         # Instalamos el paquete
-        echo "[-] Instalando $package_name"
+        printf "$NOCOLOR[-] Instalando $package_name"
         sudo apt -y install $package_name > /dev/null 2>&1
         if [ $? -eq 0 ]; then
-            echo -e "   [✓] $package_name se instaló correctamente"
+            printf "  $VERDE [✓] $package_name se instaló correctamente"
         else
-            echo -e "   [-] $package_name no se instaló correctamente"
+            printf "  $ROJO [-] $package_name no se instaló correctamente"
         fi
     fi
 done
