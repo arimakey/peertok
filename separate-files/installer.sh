@@ -22,15 +22,15 @@ IFS=' ' read -ra packages <<< "$1"
 for package_name in "${packages[@]}"; do
     # Verificamos si el paquete ya está instalado
     if package_installed "$package_name"; then
-        printf "$VERDE [✓] $package_name ya está instalado \n"
+        printf "$VERDE[✓] $package_name ya está instalado \n $NOCOLOR"
     else
         # Instalamos el paquete
-        printf "$NOCOLOR[-] Instalando $package_name \n"
+        printf "$AZUL[-] Instalando $package_name \n $NOCOLOR"
         sudo apt -y install $package_name > /dev/null 2>&1
         if [ $? -eq 0 ]; then
-            printf "  $VERDE [✓] $package_name se instaló correctamente \n"
+            printf "$VERDE\t[✓] $package_name se instaló correctamente \n $NOCOLOR"
         else
-            printf "  $ROJO [-] $package_name no se instaló correctamente \n"
+            printf "$ROJO\t[-] $package_name no se instaló correctamente \n $NOCOLOR"
         fi
     fi
 done
