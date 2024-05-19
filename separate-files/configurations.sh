@@ -109,6 +109,7 @@ function feh() {
 
 function zsh() {
     echo "[⚙️] Cargando la configuración de ZSH"
+    rm -rf $HOME/.zshrc
     cp ./.config/.zshrc $HOME/.zshrc
     
     if [ $? -eq 0 ]; then
