@@ -1,4 +1,13 @@
 #!/bin/bash
+NEGRO="\e[30m"
+ROJO="\e[31m"
+VERDE="\e[32m"
+AMARILLO="\e[33m"
+AZUL="\e[34m"
+MAGENTA="\e[35m"
+CELESTE="\e[36m"
+BLANCO="\e[37m"
+NOCOLOR="\e[0m"
 
 root_file="$HOME/.inst"
 intentos=3  # Número máximo de intentos
@@ -19,24 +28,24 @@ sudo ./separate-files/installer.sh "feh"
 sudo ./separate-files/installer.sh "libconfig-dev libdbus-1-dev libegl-dev libev-dev libgl-dev libepoxy-dev libpcre2-dev libpixman-1-dev libx11-xcb-dev libxcb1-dev libxcb-composite0-dev libxcb-damage0-dev libxcb-dpms0-dev libxcb-glx0-dev libxcb-image0-dev libxcb-present-dev libxcb-randr0-dev libxcb-render0-dev libxcb-render-util0-dev libxcb-shape0-dev libxcb-util-dev libxcb-xfixes0-dev libxext-dev meson ninja-build uthash-dev"
 sudo ./separate-files/installer.sh "libpcre3 libpcre3-dev libxcb-xinerama0-dev"
 
-echo "[↓] Clonando Picom"
 # Clonar el repositorio de GitHub en el directorio base
 
 while [ $intentos -gt 0 ]; do
-    echo "[↓] Clonando Picom"
+    printf "$AZUL[↓] Clonando Picom$NOCOLOR \n"
+    rm -rf $HOME/.inst/picom
     git -C "$root_file" clone https://github.com/ibhagwan/picom.git > /dev/null 2>&1
     
     if [ $? -eq 0 ]; then
-        echo "[✓] Repositorio clonado exitosamente"
+        printf "$VERDE\t[✓] Repositorio clonado exitosamente$NOCOLOR \n"
         break
     else
-    	echo "[x] No se pudo clonar. Intentado otra vez"
+    	printf "$ROJO\t[x] No se pudo clonar. Intentado otra vez$NOCOLOR \n"
         intentos=$((intentos - 1)) 
     fi
 done
 
 if [ $intentos -eq 0 ]; then
-    echo "[x] No se pudo clonar. Porfavor instale picom manualmente o intente más tarde"
+    printf "$ROJO[x] No se pudo clonar. Porfavor instale picom manualmente o intente más tarde$NOCOLOR \n"
     exit 0
 fi
 
