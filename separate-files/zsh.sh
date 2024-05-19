@@ -8,12 +8,13 @@ echo "[⚙️] Cambiando la terminal por defecto"
 sudo chsh -s $(which zsh) > /dev/null 2>&1
 chsh -s $(which zsh) > /dev/null 2>&1
 
-exec zsh
+touch $HOME/.zshrc
+sudo touch $HOME/.zshrc
 
 # Instalamos ohmyZSH!
 echo "[-] Instalando OhMyZSH!"
-sh -c "$(curl -fsSL https://raw.githubusercontent.com/ohmyzsh/ohmyzsh/master/tools/install.sh)" > /dev/null 2>&1
-sudo sh -c "$(curl -fsSL https://raw.githubusercontent.com/ohmyzsh/ohmyzsh/master/tools/install.sh)" > /dev/null 2>&1
+zsh -c "$(curl -fsSL https://raw.githubusercontent.com/ohmyzsh/ohmyzsh/master/tools/install.sh)" > /dev/null 2>&1
+sudo zsh -c "$(curl -fsSL https://raw.githubusercontent.com/ohmyzsh/ohmyzsh/master/tools/install.sh)" > /dev/null 2>&1
 echo "[✓] OhMyZSH! se instaló correctamente"
 
 
