@@ -78,6 +78,6 @@ source $ZSH/oh-my-zsh.sh
 # export ARCHFLAGS="-arch x86_64"
 
 # Set personal aliases
-alias cat="batcat --paging=never --color auto"
-alias ls="exa --icons --colour=auto"
-alias la="exa --tree --icons"
+# alias cat="batcat --paging=never --color auto"
+# alias ls="exa --icons --colour=auto"
+# alias la="exa --tree --icons"
