@@ -266,6 +266,7 @@ function execute() {
 
 function main() {
 	sudo apt upgrade
+	sudo chmod +x ./separate-files/installer.sh
 
 	question_lang
 	question_operation
