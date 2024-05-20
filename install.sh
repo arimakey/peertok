@@ -50,6 +50,7 @@ function title() {
 }
 
 function ctrl_c() {
+	echo "Si la instalacion se detiene sin haber terminado de configurarse, porfavor correr nuevamente en installer y elegir la opcion de configuaracion \n"
 	printf "\e[?25h"
     exit 0;
 }
@@ -210,6 +211,7 @@ function question_options() {
 }
 
 function execute() {
+	printf("\n\n")
 	if [ "$operation" == "inst" ]; then
 		if [ "${selector_selection[0]}" == "true" ]; then
 			bash ./separate-files/desktop.sh
@@ -265,7 +267,6 @@ function execute() {
 
 
 function main() {
-	sudo apt upgrade
 	sudo chmod +x ./separate-files/installer.sh
 
 	question_lang
