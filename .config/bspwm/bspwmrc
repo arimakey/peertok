@@ -4,15 +4,16 @@ pgrep -x sxhkd > /dev/null || sxhkd &
 
 bspc monitor -d  󰈹   󰺵 
 
-bspc config border_width         0
+bspc config border_width         1
 bspc config window_gap           8
 
 bspc config split_ratio          4
 bspc config borderless_monocle   true
 bspc config gapless_monocle      true
 
-bspc rule -a Firefox desktop='^2' follow=on
-bspc rule -a codium desktop='^3' follow=on
+bspc rule -a Firefox-esr desktop='^2' follow=on
+bspc rule -a VSCodium desktop='^3' follow=on
+bspc rule -a Alacritty desktop='^1' follow=on
 
 $HOME/.config/polybar/launch.sh
 
