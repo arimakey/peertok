@@ -1,15 +1,15 @@
 #!/bin/bash
 
 # Instalamos ZSH
-sudo ./separate-files/installer.sh "zsh"
+# sudo ./separate-files/installer.sh "zsh"
 
-touch $HOME/.zshrc
-sudo touch $HOME/.zshrc
+# touch $HOME/.zshrc
+# sudo touch $HOME/.zshrc
 
-echo "[⚙️] Cambiando la terminal por defecto"
+# echo "[⚙️] Cambiando la terminal por defecto"
 # Configuramos ZSH como SHELL por defecto
-sudo chsh -s $(which zsh) > /dev/null 2>&1
-chsh -s $(which zsh) > /dev/null 2>&1
+# sudo chsh -s $(which zsh) > /dev/null 2>&1
+# chsh -s $(which zsh) > /dev/null 2>&1
 
 
 
@@ -20,9 +20,9 @@ chsh -s $(which zsh) > /dev/null 2>&1
 # echo "[✓] OhMyZSH! se instaló correctamente"
 
 
-function ctrl_c() {
-    printf "\e[?25h"
-    exit 0; 
-} 
+# function ctrl_c() {
+#     printf "\e[?25h"
+#     exit 0; 
+# } 
 
-trap ctrl_c EXIT
+# trap ctrl_c EXIT
